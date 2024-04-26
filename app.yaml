@@ -1,0 +1,26 @@
+runtime: custom
+env: flex
+service: healthbot
+readiness_check:
+  check_interval_sec: 300
+  timeout_sec: 100
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 1800
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1
+  cool_down_period_sec: 180
+  cpu_utilization:
+    target_utilization: 0.6
+  target_concurrent_requests: 10
+resources:
+  cpu: 2
+  memory_gb: 8
+  disk_size_gb: 30
+  volumes:
+  - name: ramdisk1
+    volume_type: tmpfs
+    size_gb: 0.5
+    
+    
