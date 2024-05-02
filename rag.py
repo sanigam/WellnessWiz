@@ -55,7 +55,7 @@ def gemini_resp (prompt, image_path):
 
 st.set_page_config(page_title="MultiLingual Health BOT", page_icon="rag_health.png")
 
-CLOUD_STORAGE_BUCKET = 'rag_app_embedded_docs_hack2024'
+CLOUD_STORAGE_BUCKET = 'wellness-wiz-embedded-docs'
 chroma_dir = './chroma_db'
 
 def download_blob(file_name, existing = False):
@@ -107,7 +107,7 @@ with st.sidebar:
         image = Image.open('rag_health.png')
         st.image(image)
     with col2:
-        st.markdown("<h3 style='text-align: left'>MultiLingual Health BOT : Is your food healthy? and Health QA.  </h3>", unsafe_allow_html= True)
+        st.markdown("<h3 style='text-align: left'>MultiLingual Health BOT - Wellness-Wiz : Is your food healthy? and Health QA.  </h3>", unsafe_allow_html= True)
         st.write("This application uses Gemini Model. It can tell if your food is healthy by a picture of it. Also, it can get the answers from a repository of documents.")
     col1, col2, col3  = st.columns([.42,.29, .29])
     with col1:
@@ -152,7 +152,7 @@ with st.sidebar:
 
     else:
         default_list = None
-        st.markdown(f"**Documnets available for answering questions:**")
+        st.markdown(f"**Documents available for answering questions:**")
         doc_names_text= ""
         for i, doc in enumerate(doc_list):
             doc_names_text += f"{i+1}. {doc} \n"
